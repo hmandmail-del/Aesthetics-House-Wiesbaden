@@ -16,17 +16,27 @@
 <meta property="og:site_name" content="Aesthetics House Wiesbaden">
 <meta name="geo.region" content="DE-HE">
 <meta name="geo.placename" content="Wiesbaden">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,500&family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Schriften lokal eingebunden (keine Verbindung zu Google Fonts) */
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:300 700;font-display:swap;src:url('fonts/cormorant-garamond.woff2') format('woff2');}
+@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:300 700;font-display:swap;src:url('fonts/cormorant-garamond-italic.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:100 900;font-display:swap;src:url('fonts/montserrat.woff2') format('woff2');}
+</style>
 <script>
+  // Google Analytics nur, wenn auf der Startseite in "Statistik" eingewilligt wurde
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':500});
-  gtag('js', new Date());
-  gtag('config', 'G-WGFW7DEYFE');
-  gtag('config', 'G-QNBZEH54TF');
+  gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+  (function(){
+    var c=null; try{ c=JSON.parse(localStorage.getItem('ah_cookie_consent')||'null'); }catch(e){}
+    if (!c || c.version!=='2.0' || !c.statistics) return;
+    gtag('consent','update',{'analytics_storage':'granted'});
+    gtag('js', new Date());
+    gtag('config', 'G-WGFW7DEYFE');
+    gtag('config', 'G-QNBZEH54TF');
+    var s=document.createElement('script'); s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id=G-WGFW7DEYFE'; document.head.appendChild(s);
+  })();
 </script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WGFW7DEYFE"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -40,7 +50,6 @@
     "telephone": "+49 174 637 1000",
     "email": "aestheticshousewiesbaden@gmail.com",
     "address": {"@type": "PostalAddress", "streetAddress": "Adolfstraße 5", "postalCode": "65185", "addressLocality": "Wiesbaden", "addressCountry": "DE"},
-    "aggregateRating": {"@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "43", "bestRating": "5"},
     "priceRange": "€€",
     "paymentAccepted": "Bar, Zahlung vor Ort",
     "url": "https://aestheticshouse.de/"
@@ -48,7 +57,7 @@
 }
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Was bringt ein Aqua Facial wirklich?","acceptedAnswer":{"@type":"Answer","text":"Es kombiniert Tiefenreinigung, Peeling und Wirkstoff-Hydration in einer Sitzung: Poren werden sichtbar feiner, die Haut praller und der Teint strahlender – ganz ohne Ausfallzeit."}},{"@type":"Question","name":"Für wen eignet sich Microneedling?","acceptedAnswer":{"@type":"Answer","text":"Für alle, die Hautstruktur verbessern wollen: bei ersten Fältchen, Aknenarben, vergrößerten Poren oder fahlem Teint. Wir arbeiten im kosmetischen Bereich – sanft und hautschonend."}},{"@type":"Question","name":"Wie oft sollte ich die Behandlungen machen?","acceptedAnswer":{"@type":"Answer","text":"Für nachhaltige Ergebnisse empfehlen wir eine Kur von 3–6 Sitzungen im Abstand von 3–4 Wochen. Zur Pflege danach reicht ein Termin alle 6–8 Wochen."}},{"@type":"Question","name":"Ist meine Haut danach gerötet?","acceptedAnswer":{"@type":"Answer","text":"Nach dem Aqua Facial kannst du sofort weitermachen wie gewohnt. Nach dem Microneedling kann die Haut 24–48 h leicht gerötet sein – vergleichbar mit einem milden Sonnenbrand."}},{"@type":"Question","name":"Was ist BB Glow und wie lange hält es?","acceptedAnswer":{"@type":"Answer","text":"BB Glow arbeitet getönte Seren oberflächlich in die Haut ein und gleicht so Rötungen und Unebenheiten aus. Der Effekt hält je nach Hauttyp mehrere Wochen bis Monate."}},{"@type":"Question","name":"Wie bezahle ich?","acceptedAnswer":{"@type":"Answer","text":"Bequem vor Ort nach der Behandlung – Barzahlung möglich, keine Vorkasse."}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Was bringt ein Aqua Facial wirklich?","acceptedAnswer":{"@type":"Answer","text":"Es kombiniert Tiefenreinigung, Peeling und Wirkstoff-Hydration in einer Sitzung: Poren werden sichtbar feiner, die Haut praller und der Teint strahlender – ganz ohne Ausfallzeit."}},{"@type":"Question","name":"Für wen eignet sich Microneedling?","acceptedAnswer":{"@type":"Answer","text":"Für alle, die sich ein glatter und frischer wirkendes Hautbild wünschen – etwa bei feinen Linien, großporiger oder fahl wirkender Haut. Wir arbeiten im kosmetischen Bereich – sanft und hautschonend."}},{"@type":"Question","name":"Wie oft sollte ich die Behandlungen machen?","acceptedAnswer":{"@type":"Answer","text":"Für nachhaltige Ergebnisse empfehlen wir eine Kur von 3–6 Sitzungen im Abstand von 3–4 Wochen. Zur Pflege danach reicht ein Termin alle 6–8 Wochen."}},{"@type":"Question","name":"Ist meine Haut danach gerötet?","acceptedAnswer":{"@type":"Answer","text":"Nach dem Aqua Facial kannst du sofort weitermachen wie gewohnt. Nach dem Microneedling kann die Haut 24–48 h leicht gerötet sein – vergleichbar mit einem milden Sonnenbrand."}},{"@type":"Question","name":"Was ist BB Glow und wie lange hält es?","acceptedAnswer":{"@type":"Answer","text":"BB Glow arbeitet getönte Seren oberflächlich in die Haut ein und gleicht so Rötungen und Unebenheiten aus. Der Effekt hält je nach Hauttyp mehrere Wochen bis Monate."}},{"@type":"Question","name":"Wie bezahle ich?","acceptedAnswer":{"@type":"Answer","text":"Bequem vor Ort nach der Behandlung – Barzahlung möglich, keine Vorkasse."}}]}
 </script>
 <style>
 :root{--gold:#c9a96e;--dark:#0a0a0a;--cream:#faf9f7;}
@@ -156,12 +165,12 @@ footer a:hover{color:var(--gold);}
     <h1>Aqua Facial & Microneedling in <em>Wiesbaden</em></h1>
     <p class="sub">Strahlende, pralle Haut in nur einer Sitzung: Unsere apparativen Gesichtsbehandlungen kombinieren Tiefenreinigung, Wirkstoff-Infusion und Kollagen-Boost – abgestimmt auf deinen Hautzustand.</p>
     <a href="index.html#termin" class="btn btn-gold">Jetzt Termin vereinbaren</a>
-      <a href="https://wa.me/491746371000?text=Hallo%20Aesthetics%20House%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Aqua%20Facial" class="btn btn-wa" target="_blank">WhatsApp Anfrage</a>
+      <a href="https://wa.me/491746371000?text=Hallo%20Aesthetics%20House%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Aqua%20Facial" class="btn btn-wa" target="_blank" rel="noopener">WhatsApp Anfrage</a>
       <a href="tel:+491746371000" class="btn btn-outline">☎ 0174 637 1000</a>
   </div>
 </section>
 <div class="trustbar"><div class="container">
-  <span>✓ <b>NiSV-geprüft</b> & zertifiziert</span>
+  <span>✓ <b>Hygiene</b> nach hohen Standards</span>
   <span>★ <b>5,0</b> bei Google (43 Bewertungen)</span>
   <span>✓ Seit <b>2019</b> in Wiesbaden</span>
   <span>✓ <b>Kostenlose</b> Erstberatung</span>
@@ -173,7 +182,7 @@ footer a:hover{color:var(--gold);}
     <span class="section-label">Die Behandlungen</span>
     <h2>Welches Treatment passt zu <em>deiner Haut?</em></h2>
     <p class="lead"><strong>Aqua Facial (99 €):</strong> Die Multitalent-Behandlung: Peeling, Porentiefenreinigung, Ausleitung und Wirkstoff-Hydration in einem Durchgang. Sofort sichtbarer Glow – ideal vor besonderen Anlässen, ohne Ausfallzeit.</p>
-<p class="lead"><strong>Microneedling (90 €):</strong> Feinste Mikrokanäle regen die hauteigene Kollagenproduktion an – das Mittel der Wahl bei ersten Fältchen, vergrößerten Poren, Aknenarben und fahlem Teint.</p>
+<p class="lead"><strong>Microneedling (90 €):</strong> Feinste Mikrokanäle regen die hauteigene Kollagenproduktion an – für ein glatter und frischer wirkendes Hautbild, feiner wirkende Poren und einen ebenmäßigeren Teint.</p>
 <p class="lead"><strong>BB Glow (90 €):</strong> Der ebenmäßige "Wie-geschminkt"-Teint: Getönte Seren werden oberflächlich eingearbeitet und gleichen Rötungen und Unebenheiten optisch aus – für Wochen.</p>
     <div class="benefits"><div class="benefit"><div class="ic">💧</div><h3>Sofort-Effekt</h3><p>Beim Aqua Facial siehst du den Glow direkt nach der Behandlung – perfekt vor Events.</p></div><div class="benefit"><div class="ic">🔬</div><h3>Apparative Kosmetik</h3><p>Moderne Gerätetechnik statt bloßer Cremes – für messbar bessere Hautqualität.</p></div><div class="benefit"><div class="ic">🎯</div><h3>Individuell abgestimmt</h3><p>Wir analysieren deine Haut und stellen die Wirkstoffe passend zusammen.</p></div><div class="benefit"><div class="ic">🔁</div><h3>Kombinierbar</h3><p>Aqua Facial + Microneedling als Kombi (150 €) für maximale Ergebnisse.</p></div></div>
   </div>
@@ -210,7 +219,7 @@ footer a:hover{color:var(--gold);}
   <div class="container">
     <span class="section-label">FAQ</span>
     <h2>Häufige <em>Fragen</em></h2>
-    <div style="max-width:820px;"><details><summary>Was bringt ein Aqua Facial wirklich?</summary><div class="a">Es kombiniert Tiefenreinigung, Peeling und Wirkstoff-Hydration in einer Sitzung: Poren werden sichtbar feiner, die Haut praller und der Teint strahlender – ganz ohne Ausfallzeit.</div></details><details><summary>Für wen eignet sich Microneedling?</summary><div class="a">Für alle, die Hautstruktur verbessern wollen: bei ersten Fältchen, Aknenarben, vergrößerten Poren oder fahlem Teint. Wir arbeiten im kosmetischen Bereich – sanft und hautschonend.</div></details><details><summary>Wie oft sollte ich die Behandlungen machen?</summary><div class="a">Für nachhaltige Ergebnisse empfehlen wir eine Kur von 3–6 Sitzungen im Abstand von 3–4 Wochen. Zur Pflege danach reicht ein Termin alle 6–8 Wochen.</div></details><details><summary>Ist meine Haut danach gerötet?</summary><div class="a">Nach dem Aqua Facial kannst du sofort weitermachen wie gewohnt. Nach dem Microneedling kann die Haut 24–48 h leicht gerötet sein – vergleichbar mit einem milden Sonnenbrand.</div></details><details><summary>Was ist BB Glow und wie lange hält es?</summary><div class="a">BB Glow arbeitet getönte Seren oberflächlich in die Haut ein und gleicht so Rötungen und Unebenheiten aus. Der Effekt hält je nach Hauttyp mehrere Wochen bis Monate.</div></details><details><summary>Wie bezahle ich?</summary><div class="a">Bequem vor Ort nach der Behandlung – Barzahlung möglich, keine Vorkasse.</div></details></div>
+    <div style="max-width:820px;"><details><summary>Was bringt ein Aqua Facial wirklich?</summary><div class="a">Es kombiniert Tiefenreinigung, Peeling und Wirkstoff-Hydration in einer Sitzung: Poren werden sichtbar feiner, die Haut praller und der Teint strahlender – ganz ohne Ausfallzeit.</div></details><details><summary>Für wen eignet sich Microneedling?</summary><div class="a">Für alle, die sich ein glatter und frischer wirkendes Hautbild wünschen – etwa bei feinen Linien, großporiger oder fahl wirkender Haut. Wir arbeiten im kosmetischen Bereich – sanft und hautschonend.</div></details><details><summary>Wie oft sollte ich die Behandlungen machen?</summary><div class="a">Für nachhaltige Ergebnisse empfehlen wir eine Kur von 3–6 Sitzungen im Abstand von 3–4 Wochen. Zur Pflege danach reicht ein Termin alle 6–8 Wochen.</div></details><details><summary>Ist meine Haut danach gerötet?</summary><div class="a">Nach dem Aqua Facial kannst du sofort weitermachen wie gewohnt. Nach dem Microneedling kann die Haut 24–48 h leicht gerötet sein – vergleichbar mit einem milden Sonnenbrand.</div></details><details><summary>Was ist BB Glow und wie lange hält es?</summary><div class="a">BB Glow arbeitet getönte Seren oberflächlich in die Haut ein und gleicht so Rötungen und Unebenheiten aus. Der Effekt hält je nach Hauttyp mehrere Wochen bis Monate.</div></details><details><summary>Wie bezahle ich?</summary><div class="a">Bequem vor Ort nach der Behandlung – Barzahlung möglich, keine Vorkasse.</div></details></div>
   </div>
 </section>
 
@@ -218,16 +227,16 @@ footer a:hover{color:var(--gold);}
   <div class="container">
     <span class="section-label">Warum Aesthetics House?</span>
     <h2>Dein Studio in <em>Wiesbaden</em></h2>
-    <p class="lead">Deine Haut ist bei uns in geschulten Händen: individuelle Hautanalyse, hochwertige Wirkstoffe und moderne Gerätetechnik – bestätigt durch 5,0 Sterne bei Google. Mitten in Wiesbaden (Adolfstraße 5), mit kostenlosen Parkplätzen und Terminen auch samstags.</p>
+    <p class="lead">Deine Haut ist bei uns in geschulten Händen: individuelle Hautanalyse, hochwertige Wirkstoffe und moderne Gerätetechnik – bestätigt durch 5,0 Sterne bei Google. Mitten in Wiesbaden (Adolfstraße 5), mit Terminen auch samstags.</p>
     <div class="cta-block" style="margin-top:40px;">
       <h2>Bereit für deinen Termin?</h2>
       <p>Sichere dir jetzt deine kostenlose Erstberatung – unverbindlich und persönlich. Bezahlt wird bequem vor Ort, Barzahlung ist möglich.</p>
       <a href="index.html#termin" class="btn btn-gold">Jetzt Termin vereinbaren</a>
-      <a href="https://wa.me/491746371000?text=Hallo%20Aesthetics%20House%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Aqua%20Facial" class="btn btn-wa" target="_blank">WhatsApp Anfrage</a>
+      <a href="https://wa.me/491746371000?text=Hallo%20Aesthetics%20House%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Aqua%20Facial" class="btn btn-wa" target="_blank" rel="noopener">WhatsApp Anfrage</a>
       <a href="tel:+491746371000" class="btn btn-outline">☎ 0174 637 1000</a>
     </div>
     <span class="section-label" style="margin-top:44px;">Weitere Behandlungen</span>
-    <div class="related"><a href="laser-haarentfernung-wiesbaden.html">Laser-Haarentfernung →</a><a href="wimpernverlaengerung-wiesbaden.html">Wimpernverlängerung →</a><a href="permanent-make-up-wiesbaden.html">Permanent Make-Up →</a><a href="laser-haarentfernung-maenner-wiesbaden.html">Laser für Männer →</a></div>
+    <div class="related"><a href="laser-haarentfernung-wiesbaden.html">Laser-Haarentfernung →</a><a href="wimpernverlaengerung-wiesbaden.html">Wimpernverlängerung →</a><a href="permanent-make-up-wiesbaden.html">Permanent Make-Up →</a><a href="index.html#preise">Laser für Männer →</a></div>
     
   </div>
 </section>
@@ -243,18 +252,19 @@ footer a:hover{color:var(--gold);}
     <div>
       <h4>Öffnungszeiten</h4>
       <p>Mo – Fr: 10:00 – 18:00 Uhr<br>Samstag: 10:00 – 15:00 Uhr<br>Sonntag: Geschlossen</p>
-      <p style="margin-top:10px;">🅿️ Kostenlose Parkplätze<br>🚇 2 Min. vom Luisenplatz</p>
+      <p style="margin-top:10px;">🅿️ Parkmöglichkeiten in der Umgebung<br>🚇 2 Min. vom Luisenplatz</p>
     </div>
     <div>
       <h4>Weitere Behandlungen</h4>
-      <ul style="list-style:none;"><li style="padding:3px 0;"><a href="laser-haarentfernung-wiesbaden.html">Laser-Haarentfernung</a></li><li style="padding:3px 0;"><a href="wimpernverlaengerung-wiesbaden.html">Wimpernverlängerung</a></li><li style="padding:3px 0;"><a href="permanent-make-up-wiesbaden.html">Permanent Make-Up</a></li><li style="padding:3px 0;"><a href="laser-haarentfernung-maenner-wiesbaden.html">Laser für Männer</a></li></ul>
+      <ul style="list-style:none;"><li style="padding:3px 0;"><a href="laser-haarentfernung-wiesbaden.html">Laser-Haarentfernung</a></li><li style="padding:3px 0;"><a href="wimpernverlaengerung-wiesbaden.html">Wimpernverlängerung</a></li><li style="padding:3px 0;"><a href="permanent-make-up-wiesbaden.html">Permanent Make-Up</a></li><li style="padding:3px 0;"><a href="index.html#preise">Laser für Männer</a></li></ul>
     </div>
     <div>
       <h4>Rechtliches</h4>
       <ul style="list-style:none;">
-        <li style="padding:3px 0;"><a href="index.html">Impressum</a></li>
-        <li style="padding:3px 0;"><a href="index.html">Datenschutz</a></li>
-        <li style="padding:3px 0;"><a href="index.html">AGB & Widerruf</a></li>
+        <li style="padding:3px 0;"><a href="impressum.html">Impressum</a></li>
+        <li style="padding:3px 0;"><a href="datenschutz.html">Datenschutz</a></li>
+        <li style="padding:3px 0;"><a href="agb.html">AGB &amp; Widerruf</a></li>
+        <li style="padding:3px 0;"><a href="index.html#cookie-einstellungen">Cookie-Einstellungen</a></li>
       </ul>
       <p style="margin-top:14px;font-size:11px;">2026 © Aesthetics House</p>
     </div>
@@ -262,7 +272,7 @@ footer a:hover{color:var(--gold);}
 </footer>
 <div id="mcb">
   <a href="tel:+491746371000" class="c">☎ Anrufen</a>
-  <a href="https://wa.me/491746371000?text=Hallo%20Aesthetics%20House%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Aqua%20Facial" class="w" target="_blank">WhatsApp</a>
+  <a href="https://wa.me/491746371000?text=Hallo%20Aesthetics%20House%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Aqua%20Facial" class="w" target="_blank" rel="noopener">WhatsApp</a>
 </div>
 </body>
 </html>

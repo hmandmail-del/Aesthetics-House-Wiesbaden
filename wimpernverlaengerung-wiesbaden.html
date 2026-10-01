@@ -16,17 +16,27 @@
 <meta property="og:site_name" content="Aesthetics House Wiesbaden">
 <meta name="geo.region" content="DE-HE">
 <meta name="geo.placename" content="Wiesbaden">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,500&family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Schriften lokal eingebunden (keine Verbindung zu Google Fonts) */
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:300 700;font-display:swap;src:url('fonts/cormorant-garamond.woff2') format('woff2');}
+@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:300 700;font-display:swap;src:url('fonts/cormorant-garamond-italic.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:100 900;font-display:swap;src:url('fonts/montserrat.woff2') format('woff2');}
+</style>
 <script>
+  // Google Analytics nur, wenn auf der Startseite in "Statistik" eingewilligt wurde
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':500});
-  gtag('js', new Date());
-  gtag('config', 'G-WGFW7DEYFE');
-  gtag('config', 'G-QNBZEH54TF');
+  gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+  (function(){
+    var c=null; try{ c=JSON.parse(localStorage.getItem('ah_cookie_consent')||'null'); }catch(e){}
+    if (!c || c.version!=='2.0' || !c.statistics) return;
+    gtag('consent','update',{'analytics_storage':'granted'});
+    gtag('js', new Date());
+    gtag('config', 'G-WGFW7DEYFE');
+    gtag('config', 'G-QNBZEH54TF');
+    var s=document.createElement('script'); s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id=G-WGFW7DEYFE'; document.head.appendChild(s);
+  })();
 </script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WGFW7DEYFE"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -40,7 +50,6 @@
     "telephone": "+49 174 637 1000",
     "email": "aestheticshousewiesbaden@gmail.com",
     "address": {"@type": "PostalAddress", "streetAddress": "Adolfstraße 5", "postalCode": "65185", "addressLocality": "Wiesbaden", "addressCountry": "DE"},
-    "aggregateRating": {"@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "43", "bestRating": "5"},
     "priceRange": "€€",
     "paymentAccepted": "Bar, Zahlung vor Ort",
     "url": "https://aestheticshouse.de/"
@@ -156,12 +165,12 @@ footer a:hover{color:var(--gold);}
     <h1>Wimpernverlängerung in <em>Wiesbaden</em></h1>
     <p class="sub">Wache jeden Morgen mit perfekten Wimpern auf: Von der natürlichen 1:1-Technik bis zum dramatischen Mega-Volumen – handgefertigt, typgerecht und langanhaltend.</p>
     <a href="index.html#termin" class="btn btn-gold">Jetzt Termin vereinbaren</a>
-      <a href="https://wa.me/491746371000?text=Hallo%20Aesthetics%20House%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Wimpernverl%C3%A4ngerung" class="btn btn-wa" target="_blank">WhatsApp Anfrage</a>
+      <a href="https://wa.me/491746371000?text=Hallo%20Aesthetics%20House%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Wimpernverl%C3%A4ngerung" class="btn btn-wa" target="_blank" rel="noopener">WhatsApp Anfrage</a>
       <a href="tel:+491746371000" class="btn btn-outline">☎ 0174 637 1000</a>
   </div>
 </section>
 <div class="trustbar"><div class="container">
-  <span>✓ <b>NiSV-geprüft</b> & zertifiziert</span>
+  <span>✓ <b>Hygiene</b> nach hohen Standards</span>
   <span>★ <b>5,0</b> bei Google (43 Bewertungen)</span>
   <span>✓ Seit <b>2019</b> in Wiesbaden</span>
   <span>✓ <b>Kostenlose</b> Erstberatung</span>
@@ -222,16 +231,16 @@ footer a:hover{color:var(--gold);}
   <div class="container">
     <span class="section-label">Warum Aesthetics House?</span>
     <h2>Dein Studio in <em>Wiesbaden</em></h2>
-    <p class="lead">Unsere Lash-Stylistinnen arbeiten mit Präzision und Geduld – das bestätigen 43 Google-Bewertungen mit 5,0 Sternen. Zentral in der Adolfstraße 5 (2 Min. vom Luisenplatz, kostenlose Parkplätze) bekommst du Wimpern-Perfektion zu fairen Preisen – seit 2019.</p>
+    <p class="lead">Unsere Lash-Stylistinnen arbeiten mit Präzision und Geduld – das bestätigen 43 Google-Bewertungen mit 5,0 Sternen (Stand 09/2026). Zentral in der Adolfstraße 5 (2 Min. vom Luisenplatz) bekommst du Wimpern-Perfektion zu fairen Preisen – seit 2019.</p>
     <div class="cta-block" style="margin-top:40px;">
       <h2>Bereit für deinen Termin?</h2>
       <p>Sichere dir jetzt deine kostenlose Erstberatung – unverbindlich und persönlich. Bezahlt wird bequem vor Ort, Barzahlung ist möglich.</p>
       <a href="index.html#termin" class="btn btn-gold">Jetzt Termin vereinbaren</a>
-      <a href="https://wa.me/491746371000?text=Hallo%20Aesthetics%20House%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Wimpernverl%C3%A4ngerung" class="btn btn-wa" target="_blank">WhatsApp Anfrage</a>
+      <a href="https://wa.me/491746371000?text=Hallo%20Aesthetics%20House%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Wimpernverl%C3%A4ngerung" class="btn btn-wa" target="_blank" rel="noopener">WhatsApp Anfrage</a>
       <a href="tel:+491746371000" class="btn btn-outline">☎ 0174 637 1000</a>
     </div>
     <span class="section-label" style="margin-top:44px;">Weitere Behandlungen</span>
-    <div class="related"><a href="laser-haarentfernung-wiesbaden.html">Laser-Haarentfernung →</a><a href="permanent-make-up-wiesbaden.html">Permanent Make-Up →</a><a href="aqua-facial-microneedling-wiesbaden.html">Aqua Facial & Microneedling →</a><a href="laser-haarentfernung-maenner-wiesbaden.html">Laser für Männer →</a></div>
+    <div class="related"><a href="laser-haarentfernung-wiesbaden.html">Laser-Haarentfernung →</a><a href="permanent-make-up-wiesbaden.html">Permanent Make-Up →</a><a href="aqua-facial-microneedling-wiesbaden.html">Aqua Facial & Microneedling →</a><a href="index.html#preise">Laser für Männer →</a></div>
     
   </div>
 </section>
@@ -247,18 +256,19 @@ footer a:hover{color:var(--gold);}
     <div>
       <h4>Öffnungszeiten</h4>
       <p>Mo – Fr: 10:00 – 18:00 Uhr<br>Samstag: 10:00 – 15:00 Uhr<br>Sonntag: Geschlossen</p>
-      <p style="margin-top:10px;">🅿️ Kostenlose Parkplätze<br>🚇 2 Min. vom Luisenplatz</p>
+      <p style="margin-top:10px;">🅿️ Parkmöglichkeiten in der Umgebung<br>🚇 2 Min. vom Luisenplatz</p>
     </div>
     <div>
       <h4>Weitere Behandlungen</h4>
-      <ul style="list-style:none;"><li style="padding:3px 0;"><a href="laser-haarentfernung-wiesbaden.html">Laser-Haarentfernung</a></li><li style="padding:3px 0;"><a href="permanent-make-up-wiesbaden.html">Permanent Make-Up</a></li><li style="padding:3px 0;"><a href="aqua-facial-microneedling-wiesbaden.html">Aqua Facial & Microneedling</a></li><li style="padding:3px 0;"><a href="laser-haarentfernung-maenner-wiesbaden.html">Laser für Männer</a></li></ul>
+      <ul style="list-style:none;"><li style="padding:3px 0;"><a href="laser-haarentfernung-wiesbaden.html">Laser-Haarentfernung</a></li><li style="padding:3px 0;"><a href="permanent-make-up-wiesbaden.html">Permanent Make-Up</a></li><li style="padding:3px 0;"><a href="aqua-facial-microneedling-wiesbaden.html">Aqua Facial & Microneedling</a></li><li style="padding:3px 0;"><a href="index.html#preise">Laser für Männer</a></li></ul>
     </div>
     <div>
       <h4>Rechtliches</h4>
       <ul style="list-style:none;">
-        <li style="padding:3px 0;"><a href="index.html">Impressum</a></li>
-        <li style="padding:3px 0;"><a href="index.html">Datenschutz</a></li>
-        <li style="padding:3px 0;"><a href="index.html">AGB & Widerruf</a></li>
+        <li style="padding:3px 0;"><a href="impressum.html">Impressum</a></li>
+        <li style="padding:3px 0;"><a href="datenschutz.html">Datenschutz</a></li>
+        <li style="padding:3px 0;"><a href="agb.html">AGB &amp; Widerruf</a></li>
+        <li style="padding:3px 0;"><a href="index.html#cookie-einstellungen">Cookie-Einstellungen</a></li>
       </ul>
       <p style="margin-top:14px;font-size:11px;">2026 © Aesthetics House</p>
     </div>
@@ -266,7 +276,7 @@ footer a:hover{color:var(--gold);}
 </footer>
 <div id="mcb">
   <a href="tel:+491746371000" class="c">☎ Anrufen</a>
-  <a href="https://wa.me/491746371000?text=Hallo%20Aesthetics%20House%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Wimpernverl%C3%A4ngerung" class="w" target="_blank">WhatsApp</a>
+  <a href="https://wa.me/491746371000?text=Hallo%20Aesthetics%20House%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Wimpernverl%C3%A4ngerung" class="w" target="_blank" rel="noopener">WhatsApp</a>
 </div>
 </body>
 </html>
