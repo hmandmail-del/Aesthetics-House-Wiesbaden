@@ -1700,6 +1700,7 @@ footer a:hover {
 (function(){
   var el=document.getElementById('ah-intro'), root=document.documentElement, seen=false, done=false;
   try{seen=sessionStorage.getItem('ah_intro')==='1'}catch(e){}
+  if(/[?&]buchen=/.test(location.search) || location.hash==='#termin') seen=true;
   if(seen || (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)){el.classList.add('gone');return}
   try{sessionStorage.setItem('ah_intro','1')}catch(e){}
   root.classList.add('ah-intro-on');
@@ -4287,7 +4288,8 @@ function selectTreatment(value){
   // Dauer hat sich geändert -> freie Termine und Slots neu berechnen
   renderCal();
   if (selDate) { selTime = null; showTimes(); }
-  if (typeof activeRabatt !== 'undefined' && activeRabatt) checkRabatt();
+  const _rcInput = document.getElementById('rabattcode');
+  if ((typeof activeRabatt !== 'undefined' && activeRabatt) || (_rcInput && _rcInput.value.trim())) checkRabatt();
 
   updateStickyBar();
   renderRecap();
@@ -4301,6 +4303,26 @@ document.getElementById('nextM').onclick = () => bcShiftMonth(1);
 renderCal();
 renderCatChips();
 renderTreatmentGrid();
+
+// ── Direktlink zur Buchung (z. B. von der Laser-Landingpage) ──
+// index.html?buchen=laser-damen&zone=Achseln&code=HALLO10#termin
+(function(){
+  let q; try { q = new URLSearchParams(location.search); } catch(e) { return; }
+  const catId = q.get('buchen');
+  if (!catId || !BOOKING_CONFIG.categories.some(function(c){ return c.id === catId; })) return;
+  const zone = q.get('zone'), code = (q.get('code') || '').trim().toUpperCase();
+  const t = zone ? BC_ALL_TREATMENTS.filter(function(x){ return x.catId === catId && x.name === zone; })[0] : null;
+  function go(){
+    setCat(catId);
+    if (t) selectTreatment(t.value);
+    const rc = document.getElementById('rabattcode');
+    if (code && rc && typeof checkRabatt === 'function') { rc.value = code; checkRabatt(); }
+    const wrap = document.querySelector('#termin .form-wrap');
+    if (wrap) window.scrollTo({ top: wrap.getBoundingClientRect().top + window.pageYOffset - 90 });
+  }
+  if (document.readyState === 'complete') setTimeout(go, 50);
+  else window.addEventListener('load', function(){ setTimeout(go, 50); });
+})();
 
 // Submit booking
 // ══════════════════════════════════════
@@ -5793,6 +5815,8 @@ let buchungen = loadData('ah_buchungen', []);
 
 // ── Rabattcodes ──
 let rabattCodes = loadData('ah_codes', {"WELCOME10":{"percent":10,"desc":"Willkommensrabatt"},"VIP20":{"percent":20,"desc":"VIP Kundin"}});
+// Neukunden-Angebot der Laser-Landingpage (gilt nur für Laser-Haarentfernung)
+if (!rabattCodes.HALLO10) rabattCodes.HALLO10 = {"percent":10,"desc":"Neukunden-Rabatt Laser","cats":["laser-damen","laser-herren","pakete"]};
 let activeRabatt = null;
 function saveCodes() { saveData('ah_codes', rabattCodes); }
 
@@ -6247,7 +6271,16 @@ function checkRabatt() {
   const input = document.getElementById('rabattcode').value.trim().toUpperCase();
   const msg = document.getElementById('rabattMsg');
   msg.style.display = 'block';
-  if (rabattCodes[input]) {
+  const _rc = rabattCodes[input];
+  const _sel = (typeof bcSelTreatment !== 'undefined') ? bcSelTreatment : null;
+  if (_rc && _rc.cats && _sel && _rc.cats.indexOf(_sel.catId) === -1) {
+    activeRabatt = null;
+    msg.style.cssText = 'display:block;padding:10px 14px;background:#fffbeb;border:1px solid #f59e0b;color:#92400e;font-size:13px;margin-bottom:10px;';
+    msg.innerHTML = ahL('ℹ️ Der Code <strong>' + ahEsc(input) + '</strong> gilt nur für Laser-Haarentfernung.', 'ℹ️ The code <strong>' + ahEsc(input) + '</strong> is only valid for laser hair removal.');
+    if (typeof renderRecap === 'function') renderRecap();
+    return;
+  }
+  if (_rc) {
     activeRabatt = {code: input, ...rabattCodes[input]};
     msg.style.cssText = 'display:block;padding:10px 14px;background:#e8f8ef;border:1px solid #22c55e;color:#15803d;font-size:13px;margin-bottom:10px;';
     const pi = computePrice();
